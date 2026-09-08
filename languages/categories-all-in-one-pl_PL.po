@@ -1,0 +1,557 @@
+# Copyright (C) 2025 Cool Cat Ideas
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Categories All In One 1.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/categories-all-in-"
+"one\n"
+"POT-Creation-Date: 2026-08-26T23:20:20+02:00\n"
+"PO-Revision-Date: 2026-08-26 23:24+0200\n"
+"Last-Translator: Cool Cat Ideas\n"
+"Language-Team: Polish\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: categories-all-in-one\n"
+
+#. Plugin Name of the plugin
+#: categories-all-in-one.php categories-all-in-one.php:388
+#: categories-all-in-one.php:389
+msgid "Categories All In One"
+msgstr "Categories All In One"
+
+#. Plugin URI of the plugin
+#: categories-all-in-one.php
+msgid "https://coolcatideas.com/en/products/categories-all-in-one/"
+msgstr ""
+
+#. Description of the plugin
+#: categories-all-in-one.php
+msgid ""
+"Build responsive category lists, columns and cards from WordPress taxonomies."
+msgstr ""
+
+#. Author of the plugin
+#: categories-all-in-one.php
+msgid "Cool Cat Ideas"
+msgstr ""
+
+#. Author URI of the plugin
+#: categories-all-in-one.php
+msgid "https://coolcatideas.com"
+msgstr ""
+
+#: categories-all-in-one.php:134
+msgid "You are not allowed to create category shortcodes."
+msgstr ""
+
+#: categories-all-in-one.php:135
+msgid "Access denied"
+msgstr ""
+
+#: categories-all-in-one.php:326 categories-widget.class.php:195
+#: categories-widget.class.php:210 shortcode-generator.php:155
+#: shortcode-generator.php:168
+msgid "No categories"
+msgstr "Brak kategorii"
+
+#: categories-all-in-one.php:327
+msgid "More tools for your WordPress site"
+msgstr ""
+
+#: categories-all-in-one.php:328
+msgid ""
+"Cool Cat Ideas is part of teastudio. We build and maintain online stores, "
+"WordPress websites, web applications and integrations for growing businesses."
+msgstr ""
+
+#: categories-all-in-one.php:329 includes/plugin-info.php:20
+msgid "See what we build"
+msgstr ""
+
+#: categories-all-in-one.php:429
+#, fuzzy
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: categories-all-in-one.php:434
+msgid ""
+"Build clear category navigation from the taxonomies you already manage in "
+"WordPress."
+msgstr "Twórz przejrzystą nawigację kategorii na podstawie taksonomii, którymi już zarządzasz w WordPressie."
+
+#: categories-all-in-one.php:439 includes/admin-sidebar.php:33
+#: includes/plugin-info.php:25
+msgid "Documentation"
+msgstr "Dokumentacja"
+
+#: categories-all-in-one.php:445
+msgid "Plugin summary"
+msgstr "Podsumowanie wtyczki"
+
+#: categories-all-in-one.php:448
+msgid "Editor"
+msgstr "Edytor"
+
+#: categories-all-in-one.php:448
+msgid "Block"
+msgstr "Blok"
+
+#: categories-all-in-one.php:452
+msgid "Reusable embeds"
+msgstr "Osadzanie wielokrotne"
+
+#: categories-all-in-one.php:452
+#, fuzzy
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: categories-all-in-one.php:456
+msgid "Legacy support"
+msgstr "Obsługa starszych rozwiązań"
+
+#: categories-all-in-one.php:456
+msgid "Widget"
+msgstr "Widżet"
+
+#: categories-all-in-one.php:462
+msgid "Quick feedback"
+msgstr "Szybka opinia"
+
+#: categories-all-in-one.php:463
+msgid "How is Categories All In One working for you?"
+msgstr "Jak sprawdza się u Ciebie Categories All In One?"
+
+#: categories-all-in-one.php:464
+msgid ""
+"If this plugin helps your site, a short review helps us keep improving it."
+msgstr "Jeśli ta wtyczka pomaga na Twojej stronie, krótka ocena pomoże nam dalej ją rozwijać."
+
+#: categories-all-in-one.php:469
+msgid "Rate on WordPress.org"
+msgstr "Oceń na WordPress.org"
+
+#: categories-all-in-one.php:470
+msgid "Open GitHub"
+msgstr "Otwórz GitHub"
+
+#: categories-all-in-one.php:478
+msgid "Start here"
+msgstr "Zacznij tutaj"
+
+#: categories-all-in-one.php:479
+msgid ""
+"Add the block, choose its source and layout, then check the result at every "
+"breakpoint."
+msgstr "Dodaj blok, wybierz źródło i układ, a następnie sprawdź rezultat w każdym widoku."
+
+#: categories-all-in-one.php:482
+msgid "Open a page or post and add the Categories All In One block."
+msgstr "Otwórz stronę lub wpis i dodaj blok Categories All In One."
+
+#: categories-all-in-one.php:483
+msgid "Choose a taxonomy, layout and the hierarchy depth you want to show."
+msgstr "Wybierz taksonomię, układ i głębokość hierarchii do wyświetlenia."
+
+#: categories-all-in-one.php:484
+msgid "Publish the page and check the category links on desktop and mobile."
+msgstr "Opublikuj stronę i sprawdź linki kategorii na komputerze oraz telefonie."
+
+#: categories-all-in-one.php:490
+msgid "Style loading"
+msgstr "Ładowanie stylów"
+
+#: categories-all-in-one.php:491
+msgid "Choose whether this plugin supplies its complete frontend presentation."
+msgstr "Zdecyduj, czy wtyczka ma dostarczać kompletny wygląd na froncie."
+
+#: categories-all-in-one.php:499
+#, fuzzy
+msgid "Load the plugin styles"
+msgstr "Ładuj style wtyczki"
+
+#: categories-all-in-one.php:500
+msgid ""
+"Keep this enabled unless your theme supplies the complete category layout."
+msgstr "Pozostaw włączone, chyba że motyw zapewnia kompletny wygląd kategorii."
+
+#: categories-all-in-one.php:505
+msgid "Save changes"
+msgstr "Zapisz zmiany"
+
+#: categories-generator.class.php:123
+#, fuzzy
+msgid "Open %s category"
+msgstr "Zobacz posty w kategorii"
+
+#: categories-generator.class.php:149
+#, fuzzy
+msgid "View posts in category %s"
+msgstr "Zobacz posty w kategorii"
+
+#: categories-widget.class.php:23
+msgid ""
+"Display customizable category list from selected taxonomies with various "
+"sorting and styling options"
+msgstr ""
+"Wyświetlaj dostosowaną listę kategorii z wybranych taksonomii z różnymi "
+"opcjami sortowania i stylizacji"
+
+#: categories-widget.class.php:84
+msgid "Title"
+msgstr "Tytuł"
+
+#: categories-widget.class.php:90 shortcode-generator.php:45
+msgid "Language"
+msgstr "Język"
+
+#: categories-widget.class.php:103 shortcode-generator.php:64
+msgid "Category source"
+msgstr "Źródło kategorii"
+
+#: categories-widget.class.php:131 shortcode-generator.php:95
+msgid "Categories from parent"
+msgstr "Kategorie z rodzica"
+
+#: categories-widget.class.php:144 shortcode-generator.php:109
+msgid "Order by"
+msgstr "Sortuj według"
+
+#: categories-widget.class.php:159 shortcode-generator.php:123
+msgid "Order"
+msgstr "Kolejność"
+
+#: categories-widget.class.php:174 shortcode-generator.php:137
+msgid "Category hierarchy depth"
+msgstr "Głębokość hierarchii kategorii"
+
+#: categories-widget.class.php:177 shortcode-generator.php:139
+msgid "0 means no depth limit."
+msgstr "0 oznacza brak limitu głębokości."
+
+#: categories-widget.class.php:181 shortcode-generator.php:144
+msgid "Hide empty"
+msgstr "Ukryj puste"
+
+#: categories-widget.class.php:187 shortcode-generator.php:148
+msgid "Exclude categories"
+msgstr "Wyklucz kategorie"
+
+#: categories-widget.class.php:202 shortcode-generator.php:161
+msgid "Customize category order"
+msgstr "Dostosuj kolejność kategorii"
+
+#: categories-widget.class.php:217 shortcode-generator.php:175
+msgid "Layout"
+msgstr ""
+
+#: categories-widget.class.php:227 includes/utils.class.php:344
+#: shortcode-generator.php:184
+msgid "Columns"
+msgstr ""
+
+#: categories-widget.class.php:237 shortcode-generator.php:193
+msgid "List type"
+msgstr "Typ listy"
+
+#: categories-widget.class.php:252 shortcode-generator.php:208
+msgid "Show count"
+msgstr "Pokaż licznik"
+
+#: categories-widget.class.php:258 shortcode-generator.php:213
+#, fuzzy
+msgid "Show category image"
+msgstr "Brak kategorii"
+
+#: categories-widget.class.php:264 shortcode-generator.php:217
+msgid "Counter's brackets"
+msgstr "Nawiasy licznika"
+
+#: categories-widget.class.php:279 shortcode-generator.php:232
+msgid "Show description"
+msgstr "Pokaż opis"
+
+#: categories-widget.class.php:285 shortcode-generator.php:236
+msgid "Description length in chars"
+msgstr "Długość opisu w znakach"
+
+#: categories-widget.class.php:288 shortcode-generator.php:238
+msgid "0 means no description limit."
+msgstr "0 oznacza brak limitu opisu."
+
+#: categories-widget.class.php:292 shortcode-generator.php:243
+msgid "Description as link"
+msgstr "Opis jako link"
+
+#: categories-widget.class.php:298 shortcode-generator.php:247
+msgid "Separator for each category"
+msgstr "Separator dla każdej kategorii"
+
+#: categories-widget.class.php:304 shortcode-generator.php:252
+msgid "Custom CSS class(es) for each category"
+msgstr "Własna klasa CSS dla każdej kategorii"
+
+#: categories-widget.class.php:307 categories-widget.class.php:314
+#: shortcode-generator.php:254 shortcode-generator.php:260
+msgid "Separate multiple classes with spaces."
+msgstr "Oddziel wiele klas spacjami."
+
+#: categories-widget.class.php:311 shortcode-generator.php:258
+msgid "Additional CSS class(es) for block"
+msgstr "Dodatkowe klasy CSS dla bloku"
+
+#: categories-widget.class.php:319
+msgid "Open the product page"
+msgstr "Otwórz stronę produktu"
+
+#: includes/admin-sidebar.php:15
+msgid "Plugin status"
+msgstr "Status wtyczki"
+
+#: includes/admin-sidebar.php:16
+msgid "Free"
+msgstr "Bezpłatna"
+
+#: includes/admin-sidebar.php:20
+msgid "Installed version"
+msgstr "Zainstalowana wersja"
+
+#: includes/admin-sidebar.php:21
+msgid "Platform"
+msgstr "Platforma"
+
+#: includes/admin-sidebar.php:27
+msgid "Product resources"
+msgstr "Materiały produktu"
+
+#: includes/admin-sidebar.php:28
+msgid "Open the official product, documentation and source pages."
+msgstr "Otwórz oficjalną stronę produktu, dokumentację i kod źródłowy."
+
+#: includes/admin-sidebar.php:30
+#, fuzzy
+msgid "Categories All In One resources"
+msgstr "Materiały Categories All In One"
+
+#: includes/admin-sidebar.php:31
+msgid "Cool Cat Ideas home"
+msgstr "Strona główna Cool Cat Ideas"
+
+#: includes/admin-sidebar.php:32 includes/plugin-info.php:26
+msgid "Product page"
+msgstr "Strona produktu"
+
+#: includes/admin-sidebar.php:34
+msgid "GitHub repository"
+msgstr "Repozytorium GitHub"
+
+#: includes/admin-sidebar.php:35
+msgid "Review on WordPress.org"
+msgstr "Opinia na WordPress.org"
+
+#: includes/admin-sidebar.php:41
+msgid "Built by Cool Cat Ideas"
+msgstr "Stworzone przez Cool Cat Ideas"
+
+#: includes/admin-sidebar.php:42
+msgid ""
+"Part of teastudio. We build WordPress and PrestaShop products backed by "
+"practical implementation experience."
+msgstr "Część teastudio. Tworzymy produkty dla WordPressa i PrestaShop oparte na praktycznym doświadczeniu wdrożeniowym."
+
+#: includes/admin-sidebar.php:43
+msgid "Explore Cool Cat Ideas"
+msgstr "Poznaj Cool Cat Ideas"
+
+#: includes/plugin-info.php:16
+msgid "Part of teastudio"
+msgstr "Część teastudio"
+
+#: includes/plugin-info.php:19
+msgid ""
+"This plugin is one small part of what we build. We create and maintain "
+"online stores, WordPress websites, web applications and API integrations."
+msgstr "Ta wtyczka jest niewielką częścią tego, co tworzymy. Budujemy i utrzymujemy sklepy internetowe, strony WordPress, aplikacje webowe i integracje API."
+
+#: includes/plugin-info.php:24
+msgid "Help and links"
+msgstr "Pomoc i linki"
+
+#: includes/plugin-info.php:27
+msgid "Leave a review"
+msgstr "Dodaj opinię"
+
+#: includes/utils.class.php:334
+msgid "Bullet list"
+msgstr "Wypunktowana lista"
+
+#: includes/utils.class.php:335
+msgid "Numbered list"
+msgstr "Numerowana lista"
+
+#: includes/utils.class.php:336
+msgid "Without list"
+msgstr "Bez listy"
+
+#: includes/utils.class.php:343
+#, fuzzy
+msgid "List"
+msgstr "Typ listy"
+
+#: includes/utils.class.php:345
+msgid "Cards"
+msgstr ""
+
+#: includes/utils.class.php:352
+msgid "One column"
+msgstr ""
+
+#: includes/utils.class.php:353
+msgid "Two columns"
+msgstr ""
+
+#: includes/utils.class.php:354
+msgid "Three columns"
+msgstr ""
+
+#: includes/utils.class.php:355
+msgid "Four columns"
+msgstr ""
+
+#: includes/utils.class.php:362
+msgid "Name"
+msgstr "Nazwa"
+
+#: includes/utils.class.php:363
+msgid "Count"
+msgstr "Licznik"
+
+#: includes/utils.class.php:370
+msgid "Ascending"
+msgstr "Rosnąco"
+
+#: includes/utils.class.php:371
+msgid "Descending"
+msgstr "Malejąco"
+
+#: includes/utils.class.php:372
+msgid "Random"
+msgstr "Losowo"
+
+#: includes/utils.class.php:379
+msgid "Round ()"
+msgstr "Okrągłe ()"
+
+#: includes/utils.class.php:380
+msgid "Curly {}"
+msgstr "Klamrowe {}"
+
+#: includes/utils.class.php:381
+msgid "Square []"
+msgstr "Kwadratowe []"
+
+#: includes/utils.class.php:382
+msgid "Angle <>"
+msgstr "Ostre <>"
+
+#: includes/utils.class.php:383
+msgid "Without brackets"
+msgstr "Bez nawiasów"
+
+#: shortcode-generator.php:59
+msgid "Only categories from this content"
+msgstr "Tylko kategorie z tej treści"
+
+#: shortcode-generator.php:264
+msgid "Insert Shortcode"
+msgstr "Wstaw kod"
+
+#~ msgid "Styles"
+#~ msgstr "Style"
+
+#~ msgid "Select if you want to include plugin's styles."
+#~ msgstr "Zaznacz, jeśli chcesz dołączyć style wtyczki."
+
+#~ msgid "See more about"
+#~ msgstr "Zobacz więcej o"
+
+#~ msgid "Version"
+#~ msgstr "Wersja"
+
+#~ msgid "If you like this plugin, give us %s stars!"
+#~ msgstr "Jeśli podoba Ci się ta wtyczka, daj nam %s gwiazdek!"
+
+#~ msgid "Visit the ratings on"
+#~ msgstr "Zobacz oceny na"
+
+#~ msgid "Query options"
+#~ msgstr "Opcje zapytania"
+
+#~ msgid "Configure your categories settings."
+#~ msgstr "Konfiguruj ustawienia kategorii."
+
+
+msgid "Installed"
+msgstr "Zainstalowana"
+
+
+msgid "Latest"
+msgstr "Najnowsza"
+
+
+msgid "Last check"
+msgstr "Ostatnie sprawdzenie"
+
+
+msgid "Checking for updates..."
+msgstr "Sprawdzanie aktualizacji..."
+
+
+msgid "New version available"
+msgstr "Dostępna jest nowa wersja"
+
+
+msgid "You are up to date"
+msgstr "Masz aktualną wersję"
+
+
+msgid "Version feed is unavailable"
+msgstr "Nie można pobrać informacji o wersji"
+
+
+msgid "View update"
+msgstr "Zobacz aktualizację"
+
+
+msgid "Try again"
+msgstr "Spróbuj ponownie"
+
+
+msgid "Help and resources"
+msgstr "Pomoc i materiały"
+
+
+msgid "Read the documentation, ask the community or check release notes."
+msgstr "Przeczytaj dokumentację, zapytaj społeczność lub sprawdź historię zmian."
+
+
+msgid "Community support"
+msgstr "Pomoc społeczności"
+
+
+msgid "Release notes"
+msgstr "Historia zmian"
+
+
+msgid "About us"
+msgstr "O nas"
+
+
+msgid "You are not allowed to manage these settings."
+msgstr "Nie masz uprawnień do zarządzania tymi ustawieniami."
+
+msgid "Copy this shortcode to reuse the current block settings elsewhere."
+msgstr "Skopiuj ten shortcode, aby użyć bieżących ustawień bloku w innym miejscu."

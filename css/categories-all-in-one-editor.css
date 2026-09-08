@@ -1,0 +1,56 @@
+.wp-block-categories-all-in-one-block {
+  min-height: 40px;
+}
+
+.categories-all-in-one-block-loader.active {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  background: rgba(255, 255, 255, .8);
+}
+
+.categories-all-in-one-block-spinner.active {
+  position: absolute;
+  z-index: 21;
+  top: 50%;
+  left: 50%;
+  width: 26px;
+  height: 26px;
+  margin: -13px 0 0 -13px;
+  border: 3px solid #ded8f3;
+  border-top-color: #5630c5;
+  border-radius: 50%;
+  animation: cci-categories-all-in-one-spin .7s linear infinite;
+}
+
+.cci-categories-all-in-one-editor-brand .components-card__body {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.cci-categories-all-in-one-editor-brand img {
+  flex: 0 0 48px;
+  object-fit: contain;
+}
+
+.cci-categories-all-in-one-editor-brand strong,
+.cci-categories-all-in-one-editor-brand p {
+  display: block;
+  margin: 0 0 6px;
+}
+
+.cci-categories-all-in-one-editor-brand p {
+  color: #646970;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.cci-categories-all-in-one-editor-brand a {
+  color: #5630c5;
+  font-weight: 600;
+}
+
+@keyframes cci-categories-all-in-one-spin {
+  to { transform: rotate(360deg); }
+}
