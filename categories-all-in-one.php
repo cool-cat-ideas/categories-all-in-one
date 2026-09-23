@@ -3,8 +3,9 @@
 Plugin Name: Categories All In One
 Plugin URI: https://coolcatideas.com/en/products/categories-all-in-one/
 Description: Help visitors browse posts and products with category lists, columns and cards.
-Version: 1.2.0
+Version: 1.2.1
 Requires at least: 6.2
+Tested up to: 7.1.2
 Requires PHP: 7.4
 Text Domain: categories-all-in-one
 Domain Path: /languages
@@ -43,7 +44,7 @@ require_once __DIR__ . '/includes/admin-release-status.php';
 $categories_All_In_One = new Categories_All_In_One();
 class Categories_All_In_One
 {
-  const VERSION = '1.2.0';
+  const VERSION = '1.2.1';
   const HOME_URL = 'https://coolcatideas.com/en/';
   const PRODUCT_URL = 'https://coolcatideas.com/en/products/categories-all-in-one/';
   const DOCUMENTATION_URL = 'https://coolcatideas.com/en/docs/categories-all-in-one/1.2.0/';

@@ -2,9 +2,9 @@
 Contributors: coolcatideas, teastudio.pl
 Tags: categories, taxonomy, block, widget, shortcode
 Requires at least: 6.2
-Tested up to: 7.1
+Tested up to: 7.1.2
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -84,15 +84,21 @@ Check Hide empty, the selected parent, hierarchy depth and excluded categories. 
 
 == Screenshots ==
 
-1. Plugin settings in WordPress, including style loading, version information and help links.
+1. Plugin settings in WordPress, including style loading, help links and version status. This capture shows the version feed's unavailable state.
 2. The Categories All In One block in Gutenberg with category source, sorting and hierarchy settings.
 3. Category cards in the WordPress widget editor with the block settings sidebar.
 4. The shortcode generator opened from the classic editor toolbar.
 5. WooCommerce product category cards with images, descriptions and product counts.
-6. Parent and child product categories displayed in four columns with their hierarchy and counts.
+6. Four product category cards displaying a three-level parent and child hierarchy, descriptions and counts.
 7. Blog category links arranged in four columns with post counts.
 
 == Changelog ==
+
+= 1.2.1 =
+
+* Improved the appearance and consistency of category layouts and the settings panel.
+* Fixed inconsistent formatting of the last version-check date.
+* Declared compatibility with WordPress 7.1.2.
 
 = 1.2.0 =
 
@@ -121,6 +127,10 @@ Check Hide empty, the selected parent, hierarchy depth and excluded categories. 
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+
+Improves category and settings styles, fixes the last version-check date format and supports WordPress 7.1.2.
 
 = 1.2.0 =
 

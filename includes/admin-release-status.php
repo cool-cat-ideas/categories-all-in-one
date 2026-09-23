@@ -31,7 +31,7 @@ function cci_categories_release_status()
 		'latest' => $matches[1],
 		'hasUpdate' => version_compare($matches[1], Categories_All_In_One::VERSION, '>'),
 		'url' => Categories_All_In_One::GITHUB_URL . '/releases/tag/' . rawurlencode($data['tag_name']),
-		'checkedAt' => wp_date(get_option('date_format') . ' ' . get_option('time_format')),
+		'checkedAt' => wp_date('Y-m-d H:i'),
 	);
 	return $result;
 }
