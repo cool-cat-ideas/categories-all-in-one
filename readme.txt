@@ -2,9 +2,9 @@
 Contributors: coolcatideas, teastudio.pl
 Tags: categories, taxonomy, block, widget, shortcode
 Requires at least: 6.2
-Tested up to: 7.1.2
+Tested up to: 7.1.3
 Requires PHP: 7.4
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,9 +82,15 @@ Your theme must register and display a widget area. If Appearance > Widgets is m
 
 Check Hide empty, the selected parent, hierarchy depth and excluded categories. Also make sure the taxonomy is public and hierarchical.
 
+= What does "Only categories from this content" show? =
+
+It shows terms assigned to the current post or product in the selected taxonomy, together with their ancestor categories to preserve the hierarchy. It does not include unrelated branches. If that content has no assigned terms in the selected taxonomy, the section is empty. Use depth 0 for the full hierarchy.
+
+For a shortcode, use `post="true"`; add `post_id="123"` to select a specific post or product.
+
 == Screenshots ==
 
-1. Plugin settings in WordPress, including style loading, help links and version status. This capture shows the version feed's unavailable state.
+1. Plugin settings with starting steps, style loading, documentation and support links, version status and a related WordPress tool.
 2. The Categories All In One block in Gutenberg with category source, sorting and hierarchy settings.
 3. Category cards in the WordPress widget editor with the block settings sidebar.
 4. The shortcode generator opened from the classic editor toolbar.
@@ -93,6 +99,18 @@ Check Hide empty, the selected parent, hierarchy depth and excluded categories. 
 7. Blog category links arranged in four columns with post counts.
 
 == Changelog ==
+
+= 1.2.2 =
+
+* Fixed current-content categories to respect the selected taxonomy, including WooCommerce product categories, and retain their ancestor paths.
+* Content without assigned categories now leaves the category section empty.
+* Build category hierarchies from one term lookup instead of querying every branch.
+* Fixed editor and widget previews on sites with plain permalinks.
+* Reject malformed preview parameters with a clear error instead of a PHP exception.
+* Load administration assets only on the plugin settings and relevant editor screens.
+* Fixed nested sorting markup, category-name escaping and independent widget controls.
+* Simplified settings: removed the three summary panels and placed documentation and support beside the starting steps.
+* Declared compatibility with WordPress 7.1.3.
 
 = 1.2.1 =
 
@@ -127,6 +145,10 @@ Check Hide empty, the selected parent, hierarchy depth and excluded categories. 
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+
+Fixes current-content category selection and editor previews, reduces term lookups and simplifies the settings screen. Declares compatibility with WordPress 7.1.3.
 
 = 1.2.1 =
 

@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Categories All In One 1.2.0\n"
+"Project-Id-Version: Categories All In One 1.2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/categories-all-in-"
 "one\n"
 "POT-Creation-Date: 2026-08-26T23:20:20+02:00\n"
@@ -555,3 +555,26 @@ msgstr "Nie masz uprawnień do zarządzania tymi ustawieniami."
 
 msgid "Copy this shortcode to reuse the current block settings elsewhere."
 msgstr "Skopiuj ten shortcode, aby użyć bieżących ustawień bloku w innym miejscu."
+
+msgid "Show what is inside each category"
+msgstr "Pokaż wpisy z wybranej kategorii"
+
+msgid "Help visitors discover posts from a chosen category with WP Posts Carousel All In One. Add a carousel below your category navigation or on a landing page."
+msgstr "Wyświetl wpisy z wybranej kategorii za pomocą WP Posts Carousel All In One. Dodaj karuzelę pod listą kategorii lub na stronie tematycznej."
+
+msgid "Explore WP Posts Carousel"
+msgstr "Poznaj WP Posts Carousel"
+
+msgid "More tools from Cool Cat Ideas"
+msgstr "Więcej narzędzi Cool Cat Ideas"
+
+msgid "Explore WordPress plugins and PrestaShop modules from Cool Cat Ideas."
+msgstr "Poznaj wtyczki WordPress i moduły PrestaShop od Cool Cat Ideas."
+
+msgid "Invalid value for %s."
+msgstr "Nieprawidłowa wartość parametru %s."
+msgid "WordPress plugins and PrestaShop modules by Cool Cat Ideas, part of teastudio."
+msgstr "Wtyczki WordPress i moduły PrestaShop od Cool Cat Ideas, marki rozwijanej w ramach teastudio."
+
+msgid "Visit Cool Cat Ideas"
+msgstr "Odwiedź Cool Cat Ideas"

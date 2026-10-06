@@ -43,6 +43,9 @@ class Categories_All_In_One_Generator
 
   public static function sanitize_css_classes($classes)
   {
+    if (!is_scalar($classes)) {
+      return '';
+    }
     $tokens = preg_split('/\s+/', (string) $classes, -1, PREG_SPLIT_NO_EMPTY);
     return implode(' ', array_filter(array_map('sanitize_html_class', $tokens)));
   }
@@ -50,6 +53,11 @@ class Categories_All_In_One_Generator
   public static function sanitize_attributes($atts)
   {
     $atts = wp_parse_args(is_array($atts) ? $atts : array(), self::get_defaults());
+    foreach (self::get_defaults() as $key => $default) {
+      if (!in_array($key, array('taxonomy', 'exclude'), true) && !is_scalar($atts[$key])) {
+        $atts[$key] = $default;
+      }
+    }
     $boolean_keys = array('post', 'hide_empty', 'show_count', 'show_image', 'show_description', 'description_link');
     foreach ($boolean_keys as $key) {
       $atts[$key] = filter_var($atts[$key], FILTER_VALIDATE_BOOLEAN);
@@ -61,7 +69,8 @@ class Categories_All_In_One_Generator
     $atts['orderby'] = in_array($atts['orderby'], array('name', 'count'), true) ? $atts['orderby'] : 'name';
     $atts['order'] = in_array(strtolower($atts['order']), array('asc', 'desc', 'rand'), true) ? strtolower($atts['order']) : 'asc';
     $atts['counter_brackets'] = in_array($atts['counter_brackets'], array('round', 'curly', 'square', 'angle', ''), true) ? $atts['counter_brackets'] : 'round';
-    $taxonomies = is_array($atts['taxonomy']) ? array_values($atts['taxonomy']) : explode(',', (string) $atts['taxonomy']);
+    $taxonomies = is_array($atts['taxonomy']) ? array_values($atts['taxonomy']) : (is_scalar($atts['taxonomy']) ? explode(',', (string) $atts['taxonomy']) : array());
+    $taxonomies = array_filter($taxonomies, 'is_scalar');
     $atts['taxonomy'] = array_values(array_filter(array_map('sanitize_key', $taxonomies), function ($taxonomy) {
       $object = get_taxonomy($taxonomy);
       return $object && $object->public && $object->hierarchical;
@@ -71,7 +80,13 @@ class Categories_All_In_One_Generator
     $atts['post_id'] = absint($atts['post_id']);
     $atts['max_depth'] = max(0, absint($atts['max_depth']));
     $atts['description_length'] = max(0, absint($atts['description_length']));
-    $atts['exclude'] = array_values(array_filter(array_map('absint', is_array($atts['exclude']) ? $atts['exclude'] : explode(',', (string) $atts['exclude']))));
+    foreach (array('exclude', 'include') as $key) {
+      if (!isset($atts[$key])) {
+        continue;
+      }
+      $ids = is_array($atts[$key]) ? $atts[$key] : (is_scalar($atts[$key]) ? explode(',', (string) $atts[$key]) : array());
+      $atts[$key] = array_values(array_unique(array_filter(array_map('absint', array_filter($ids, 'is_scalar')))));
+    }
     $atts['separator'] = sanitize_text_field($atts['separator']);
     $atts['lang'] = sanitize_text_field($atts['lang']);
     $atts['custom_class'] = self::sanitize_css_classes($atts['custom_class']);
@@ -208,9 +223,19 @@ class Categories_All_In_One_Generator
 
     if ($params['post']) {
       $post_id = $params['post_id'] ?: get_the_ID();
-      if ($post_id) {
-        $params['include'] = wp_get_post_categories($post_id, array('fields' => 'ids'));
+      if (!$post_id) {
+        return $output;
       }
+      $assigned = wp_get_object_terms($post_id, $params['taxonomy'], array('fields' => 'all'));
+      if (is_wp_error($assigned) || !$assigned) {
+        return $output;
+      }
+      $params['include'] = array();
+      foreach ($assigned as $term) {
+        $params['include'][] = (int) $term->term_id;
+        $params['include'] = array_merge($params['include'], get_ancestors($term->term_id, $term->taxonomy, 'taxonomy'));
+      }
+      $params['include'] = array_values(array_unique($params['include']));
     }
 
     $query_params = apply_filters('categories_all_in_one_query_args', $params, $atts);

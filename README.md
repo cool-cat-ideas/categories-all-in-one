@@ -12,7 +12,9 @@ Help visitors find posts and products with category lists, columns and cards. Us
 
 Requires **WordPress 6.2 or later** and **PHP 7.4 or later**. WooCommerce is needed only for product categories.
 
-Current release: **1.2.1**. Declared compatibility with **WordPress 7.1.2**. See the [changelog](readme.txt) for style optimizations, fixes and documentation updates.
+Current release: **1.2.2**. Declared compatibility with **WordPress 7.1.3**.
+
+This release fixes categories selected from the current post or product, editor previews on sites with plain permalinks, and validation of preview requests. Category trees now use a single term lookup instead of a lookup for every branch. The settings screen has fewer panels, with documentation and support beside the getting-started steps.
 
 1. Install the plugin ZIP through **Plugins → Add New Plugin → Upload Plugin** and activate it.
 2. Add the **Categories All In One** block to a page or widget area.
@@ -26,6 +28,16 @@ You can also use the classic widget or a shortcode. For example, show blog categ
 
 See [readme.txt](readme.txt) for more examples, frequently asked questions and release notes.
 
+## Categories from the current content
+
+Use `post="true"` to show categories assigned to the current post or product, from the selected taxonomy. Include ancestor categories to preserve the hierarchy; unrelated categories are omitted. If the content has no categories in that taxonomy, the section stays empty.
+
+```text
+[categories_all_in_one taxonomy="product_cat" post="true" max_depth="0" layout="list"]
+```
+
+Use `post_id="123"` to select another post or product. WooCommerce must be active for `product_cat`. Keep `max_depth="0"` to show the full path to assigned categories, or select a depth appropriate for your layout.
+
 ## Screenshots
 
 Expand a screenshot to view it. The examples use demo content; the surrounding page design comes from the theme. Product category examples require WooCommerce and use the store's category images and descriptions.
@@ -33,7 +45,7 @@ Expand a screenshot to view it. The examples use demo content; the surrounding p
 <details open>
 <summary>1. Plugin settings</summary>
 
-Start with the block, widget or shortcode, control frontend style loading, and find version information, documentation and support links. This capture shows the version feed's unavailable state.
+Follow the getting-started steps, control frontend style loading, and find documentation, support and version information. The sidebar suggests a way to display posts from your categories with WP Posts Carousel and introduces Cool Cat Ideas and teastudio.
 
 ![Categories All In One settings with style loading, version status and help links](.wordpress-org/screenshot-1.png)
 
@@ -92,14 +104,6 @@ Twelve blog categories are arranged in four columns, with a post count beside ea
 ![Blog category links arranged in four columns with post counts](.wordpress-org/screenshot-7.png)
 
 </details>
-
-## Publishing screenshots
-
-`README.md` is the GitHub overview. `readme.txt` supplies the WordPress.org description and numbered screenshot captions. Keep the image order and captions aligned.
-
-The seven screenshots are versioned in `.wordpress-org/`. For WordPress.org, copy that directory's contents into the SVN checkout's top-level `assets/` directory, alongside `trunk/` and `tags/`. Do not put the screenshots in `trunk/` or a version tag.
-
-The installable package excludes `.wordpress-org/` and `README.md`; images used by the plugin remain in `images/`. GitHub's source archives are repository snapshots, so use the release ZIP when installing the plugin.
 
 ## License
 

@@ -3,9 +3,9 @@
 Plugin Name: Categories All In One
 Plugin URI: https://coolcatideas.com/en/products/categories-all-in-one/
 Description: Help visitors browse posts and products with category lists, columns and cards.
-Version: 1.2.1
+Version: 1.2.2
 Requires at least: 6.2
-Tested up to: 7.1.2
+Tested up to: 7.1.3
 Requires PHP: 7.4
 Text Domain: categories-all-in-one
 Domain Path: /languages
@@ -44,7 +44,7 @@ require_once __DIR__ . '/includes/admin-release-status.php';
 $categories_All_In_One = new Categories_All_In_One();
 class Categories_All_In_One
 {
-  const VERSION = '1.2.1';
+  const VERSION = '1.2.2';
   const HOME_URL = 'https://coolcatideas.com/en/';
   const PRODUCT_URL = 'https://coolcatideas.com/en/products/categories-all-in-one/';
   const DOCUMENTATION_URL = 'https://coolcatideas.com/en/docs/categories-all-in-one/1.2.0/';
@@ -148,8 +148,11 @@ class Categories_All_In_One
   /*
   * registers the scripts and styles for admin
   */
-  public function admin_categories_all_in_one_register_scripts()
+  public function admin_categories_all_in_one_register_scripts($hook_suffix = '')
   {
+    if (!in_array($hook_suffix, array('settings_page_categories-all-in-one', 'post.php', 'post-new.php', 'widgets.php', 'customize.php'), true)) {
+      return;
+    }
     $asset_path = plugin_dir_path(__FILE__) . 'css/categories-all-in-one-admin.css';
     wp_register_style(
       'categories-all-in-one-admin',
@@ -158,7 +161,10 @@ class Categories_All_In_One
       file_exists($asset_path) ? (string) filemtime($asset_path) : self::VERSION
     );
     wp_enqueue_style("categories-all-in-one-admin");
-
+    if ('settings_page_categories-all-in-one' !== $hook_suffix) {
+      wp_enqueue_script('categories-all-in-one-widget');
+      $this->localize_editor_data();
+    }
   }
 
 
@@ -227,13 +233,13 @@ class Categories_All_In_One
   */
   function categories_all_in_one_button()
   {
-
+    wp_register_script('categories-all-in-one-rest-api', plugins_url('js/rest-api.js', __FILE__), array(), self::VERSION, true);
     // Gutenberg block
     if (function_exists('register_block_type')) {
       wp_register_script(
         'categories-all-in-one-blocks',
         plugins_url('js/block/block-categories-all-in-one.js', __FILE__),
-        array('wp-blocks', 'wp-element', 'wp-i18n', 'wp-editor', 'jquery', 'jquery-ui-sortable'),
+        array('categories-all-in-one-rest-api', 'wp-blocks', 'wp-element', 'wp-i18n', 'wp-editor', 'jquery', 'jquery-ui-sortable'),
         filemtime(plugin_dir_path(__FILE__) . 'js/block/block-categories-all-in-one.js'),
         true
       );
@@ -272,10 +278,10 @@ class Categories_All_In_One
     add_filter("mce_buttons", array($this, "register_add_categories_all_in_one_button"));
 
     //legacy widget
-    wp_enqueue_script(
+    wp_register_script(
       'categories-all-in-one-widget',
       plugin_dir_url(__FILE__) . 'js/legacy-widget.js',
-      ['jquery', 'jquery-ui-sortable'],
+      ['categories-all-in-one-rest-api', 'jquery', 'jquery-ui-sortable'],
       filemtime(plugin_dir_path(__FILE__) . '/js/legacy-widget.js'),
       true
     );
@@ -299,14 +305,21 @@ class Categories_All_In_One
 			filemtime(__DIR__ . '/js/block/shortcode-inspector.js'),
 			true
 		);
+    $this->localize_editor_data();
+  }
+
+  private function localize_editor_data()
+  {
     global $post;
     $postId = !empty($post) ? $post->ID : 0;
     $locale = Categories_All_In_One_Utils::get_language();
 
     wp_localize_script('categories-all-in-one-widget', 'Categories_All_In_One_Widget', [
-      'apiUrl' => site_url() . '/wp-json/categories-all-in-one/v1',
+      'apiUrl' => rest_url('categories-all-in-one/v1'),
+      'categoriesUrl' => rest_url('categories-all-in-one/v1/categories'),
       'nonce'    => wp_create_nonce('wp_rest'),
       'postId' => $postId,
+      'translations' => array('noCategories' => esc_html__('No categories', 'categories-all-in-one')),
     ]);
 
     wp_localize_script(
@@ -317,7 +330,8 @@ class Categories_All_In_One
         'productUrl' => self::PRODUCT_URL,
         'documentationUrl' => self::DOCUMENTATION_URL,
         'brandLogo' => plugins_url('/images/cci-categories-all-in-one-icon.webp', __FILE__),
-        'apiUrl' => site_url() . '/wp-json/categories-all-in-one/v1',
+        'apiUrl' => rest_url('categories-all-in-one/v1'),
+        'categoriesUrl' => rest_url('categories-all-in-one/v1/categories'),
         'permalinkStructure' => get_option('permalink_structure'),
         'postId' => $postId,
         'locale' => $locale,
@@ -337,7 +351,7 @@ class Categories_All_In_One
           'shortcodeHelp' => esc_html__('Copy this shortcode to reuse the current block settings elsewhere.', 'categories-all-in-one'),
           'noCategories' => esc_html__('No categories', 'categories-all-in-one'),
           'brandTitle' => esc_html__('More tools for your WordPress site', 'categories-all-in-one'),
-          'brandText' => esc_html__('Cool Cat Ideas is part of teastudio. We build and maintain online stores, WordPress websites, web applications and integrations for growing businesses.', 'categories-all-in-one'),
+          'brandText' => esc_html__('Explore WordPress plugins and PrestaShop modules from Cool Cat Ideas.', 'categories-all-in-one'),
           'brandButton' => esc_html__('See what we build', 'categories-all-in-one'),
         ),
         'nonce' => wp_create_nonce('wp_rest')
@@ -386,6 +400,19 @@ class Categories_All_In_One
   public function categories_callback($request)
   {
     $atts = $request->get_params();
+    foreach (Categories_All_In_One_Generator::get_defaults() as $key => $default) {
+      if (!array_key_exists($key, $atts)) {
+        continue;
+      }
+      $value = $atts[$key];
+      $valid = in_array($key, array('taxonomy', 'exclude'), true)
+        ? (is_scalar($value) || (is_array($value) && count(array_filter($value, 'is_scalar')) === count($value)))
+        : is_scalar($value);
+      if (!$valid) {
+        /* translators: %s: Preview parameter name, such as order or taxonomy. */
+        return new WP_Error('categories_all_in_one_invalid_parameter', sprintf(__('Invalid value for %s.', 'categories-all-in-one'), $key), array('status' => 400));
+      }
+    }
     $output = Categories_All_In_One_Utils::get_categories($atts);
 
     return new WP_REST_Response($output, 200);
@@ -446,21 +473,6 @@ class Categories_All_In_One
 
       <div class="cci-product-admin-layout">
         <main class="cci-product-admin-main">
-          <section class="cci-product-admin-metrics" aria-label="<?php esc_attr_e('Plugin summary', 'categories-all-in-one'); ?>">
-            <article class="cci-product-admin-metric cci-product-admin-metric-primary">
-              <span class="dashicons dashicons-block-default" aria-hidden="true"></span>
-              <div><span><?php esc_html_e('Editor', 'categories-all-in-one'); ?></span><strong><?php esc_html_e('Block', 'categories-all-in-one'); ?></strong></div>
-            </article>
-            <article class="cci-product-admin-metric">
-              <span class="dashicons dashicons-shortcode" aria-hidden="true"></span>
-              <div><span><?php esc_html_e('Reusable embeds', 'categories-all-in-one'); ?></span><strong><?php esc_html_e('Shortcode', 'categories-all-in-one'); ?></strong></div>
-            </article>
-            <article class="cci-product-admin-metric">
-              <span class="dashicons dashicons-screenoptions" aria-hidden="true"></span>
-              <div><span><?php esc_html_e('Legacy support', 'categories-all-in-one'); ?></span><strong><?php esc_html_e('Widget', 'categories-all-in-one'); ?></strong></div>
-            </article>
-          </section>
-
           <section class="cci-product-admin-review">
             <div class="cci-product-admin-review-content">
               <span class="cci-product-admin-review-label"><span class="dashicons dashicons-format-chat" aria-hidden="true"></span><?php esc_html_e('Quick feedback', 'categories-all-in-one'); ?></span>
@@ -486,6 +498,11 @@ class Categories_All_In_One
               <div><strong>2</strong><p><?php esc_html_e('Choose a taxonomy, layout and the hierarchy depth you want to show.', 'categories-all-in-one'); ?></p></div>
               <div><strong>3</strong><p><?php esc_html_e('Publish the page and check the category links on desktop and mobile.', 'categories-all-in-one'); ?></p></div>
             </div>
+            <nav class="cci-categories-all-in-one-help" aria-label="<?php esc_attr_e('Categories All In One resources', 'categories-all-in-one'); ?>">
+              <a href="<?php echo esc_url(self::DOCUMENTATION_URL); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Documentation', 'categories-all-in-one'); ?></a>
+              <a href="<?php echo esc_url(self::GITHUB_URL . '/discussions'); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Community support', 'categories-all-in-one'); ?></a>
+              <a href="<?php echo esc_url(self::GITHUB_URL . '/releases'); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Release notes', 'categories-all-in-one'); ?></a>
+            </nav>
           </section>
 
           <section class="cci-product-admin-card">

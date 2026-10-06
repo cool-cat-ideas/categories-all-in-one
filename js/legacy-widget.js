@@ -1,14 +1,16 @@
 jQuery(document).ready(function ($) {
-  const toggleLoader = ($form) => {
+  const settings = window.CategoriesAllInOnePluginData || window.Categories_All_In_One_Widget;
+  const requests = new WeakMap();
+  const setLoading = ($form, visible) => {
     if ($form) {
       const loader = $form.find('.categories-all-in-one-form .categories-all-in-one-block-loader').get(0);
       const spinner = $form.find('.categories-all-in-one-form .categories-all-in-one-block-spinner').get(0);
 
       if (loader) {
-        loader.classList.toggle('active');
+        loader.classList.toggle('active', visible);
       }
       if (spinner) {
-        spinner.classList.toggle('active');
+        spinner.classList.toggle('active', visible);
       }
     }
   };
@@ -116,11 +118,11 @@ jQuery(document).ready(function ($) {
       html += '<circle cx="13" cy="12" r="2"></circle>';
       html += '<circle cx="13" cy="18" r="2"></circle>';
       html += '</svg>';
-      html += cat.name + ' (' + parseInt(cat.count) + ')';
+      html += escapeHTML(cat.name) + ' (' + parseInt(cat.count) + ')';
 
       if (cat.children && cat.children.length > 0) {
         html += '<ul class="categories-all-in-one-sortable-item-children-container">';
-        html += renderSortableTree(cat.children, ++index);
+        html += renderSortableTree(cat.children, index + 1);
         html += '</ul>';
       }
 
@@ -192,7 +194,8 @@ jQuery(document).ready(function ($) {
     const $form = $(this).closest('form');
     const object = serializeWidgetForm($form);
 
-    toggleLoader($form);
+    requests.get($form[0])?.abort();
+    setLoading($form, true);
 
     const $sortableContainer = $form.find('.categories-all-in-one-sortable');
     const $textarea = $form.find('textarea.categories-all-in-one-field-sortable');
@@ -204,12 +207,12 @@ jQuery(document).ready(function ($) {
     if ($(this).hasClass('categories-all-in-one-field-taxonomy')) {
       $form.find('.categories-all-in-one-form .categories-all-in-one-field-post').prop('checked', false);
       $form.find('.categories-all-in-one-form .categories-all-in-one-field-parent').removeAttr('disabled');
+      object.post = false;
     }
 
-    const isPostChecked = $('.categories-all-in-one-form .categories-all-in-one-field-post').is(':checked') || '';
+    const isPostChecked = $form.find('.categories-all-in-one-form .categories-all-in-one-field-post').is(':checked') || '';
 
     if (isPostChecked === true) {
-      $form.find('.categories-all-in-one-form .categories-all-in-one-field-taxonomy').prop('checked', false);
       $form
         .find('.categories-all-in-one-form .categories-all-in-one-field-parent')
         .empty()
@@ -218,23 +221,17 @@ jQuery(document).ready(function ($) {
 
     const parentField = $form.find('.categories-all-in-one-form .categories-all-in-one-field-parent');
 
-    let params = '';
-    const postId = CategoriesAllInOnePluginData.postId ? parseInt(CategoriesAllInOnePluginData.postId) : null;
-    if (postId !== null) {
-      params = `?post_id=${postId}`;
-    }
-
     const parentCategory =
       $form.find('.categories-all-in-one-field-parent').val() !== ''
         ? parseInt($form.find('.categories-all-in-one-field-parent').val())
         : '';
 
-    $.ajax({
-      url: `${CategoriesAllInOnePluginData.apiUrl}/categories/${params}`,
+    const request = $.ajax({
+      url: window.CategoriesAllInOneRest.categoriesUrl(settings),
       type: 'POST',
       contentType: 'application/json',
       headers: {
-        'X-WP-Nonce': CategoriesAllInOnePluginData.nonce
+        'X-WP-Nonce': settings.nonce
       },
       data: JSON.stringify(object),
       success: function (response) {
@@ -258,27 +255,29 @@ jQuery(document).ready(function ($) {
           } else {
             $form
               .find('.categories-all-in-one-form .exclude')
-              .html(escapeHTML(CategoriesAllInOnePluginData.translations.noCategories));
+              .html(escapeHTML(settings.translations.noCategories));
           }
 
           if (categoriesForSortable.length) {
             $sortableContainer.html(renderSortableTree(categoriesForSortable));
             initSortable($sortableContainer);
           } else {
-            $sortableContainer.html(escapeHTML(CategoriesAllInOnePluginData.translations.noCategories));
+            $sortableContainer.html(escapeHTML(settings.translations.noCategories));
           }
 
           $sortableContainer.find('.sortable-container, .children-container').sortable('destroy');
 
-          toggleLoader($form);
+          setLoading($form, false);
         }
       },
-      error: function () {
+      error: function (_, status) {
+        if (status === 'abort') return;
         console.error('API Error');
 
-        toggleLoader($form);
+        setLoading($form, false);
       }
     });
+    requests.set($form[0], request);
   });
 
   $(document).on('widget-added widget-updated', function (event, widget) {

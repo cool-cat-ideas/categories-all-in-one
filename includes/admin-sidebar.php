@@ -28,24 +28,18 @@ $message = !$release
 		<a class="button cci-product-admin-secondary-button" href="<?php echo esc_url($release['url']); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e('View update', 'categories-all-in-one'); ?></a>
 	<?php endif; ?>
 </section>
-<section class="cci-product-admin-card cci-product-admin-resources">
-  <div class="cci-product-admin-card-heading">
-    <h2><?php esc_html_e('Help and resources', 'categories-all-in-one'); ?></h2>
-    <p><?php esc_html_e('Read the documentation, ask the community or check release notes.', 'categories-all-in-one'); ?></p>
-  </div>
-  <nav aria-label="<?php esc_attr_e('Categories All In One resources', 'categories-all-in-one'); ?>">
-    <a href="<?php echo esc_url(Categories_All_In_One::PRODUCT_URL); ?>" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-store" aria-hidden="true"></span><span><?php esc_html_e('Product page', 'categories-all-in-one'); ?></span></a>
-    <a href="<?php echo esc_url(Categories_All_In_One::DOCUMENTATION_URL); ?>" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-book-alt" aria-hidden="true"></span><span><?php esc_html_e('Documentation', 'categories-all-in-one'); ?></span></a>
-    <a href="<?php echo esc_url(Categories_All_In_One::GITHUB_URL . '/discussions'); ?>" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-format-chat" aria-hidden="true"></span><span><?php esc_html_e('Community support', 'categories-all-in-one'); ?></span></a>
-    <a href="<?php echo esc_url(Categories_All_In_One::GITHUB_URL . '/releases'); ?>" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-update" aria-hidden="true"></span><span><?php esc_html_e('Release notes', 'categories-all-in-one'); ?></span></a>
-    <a href="<?php echo esc_url(Categories_All_In_One::GITHUB_URL); ?>" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-code-standards" aria-hidden="true"></span><span><?php esc_html_e('GitHub repository', 'categories-all-in-one'); ?></span></a>
-  </nav>
+<section class="cci-product-admin-card cci-categories-all-in-one-recommendation">
+  <h2><?php esc_html_e('Show what is inside each category', 'categories-all-in-one'); ?></h2>
+  <p><?php esc_html_e('Help visitors discover posts from a chosen category with WP Posts Carousel All In One. Add a carousel below your category navigation or on a landing page.', 'categories-all-in-one'); ?></p>
+  <a class="button button-primary" href="https://coolcatideas.com/en/products/wp-posts-carousel-all-in-one/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Explore WP Posts Carousel', 'categories-all-in-one'); ?></a>
 </section>
 
-<section class="cci-product-admin-card cci-product-admin-brand-card">
-  <img src="<?php echo esc_url(plugins_url('images/cool-cat-ideas-logo.svg', dirname(__DIR__) . '/categories-all-in-one.php')); ?>" width="230" height="72" alt="Cool Cat Ideas">
-  <img class="cci-product-admin-teastudio-logo" src="<?php echo esc_url(plugins_url('images/teastudio-logo.png', dirname(__DIR__) . '/categories-all-in-one.php')); ?>" alt="teastudio">
+<section class="cci-product-admin-card cci-categories-all-in-one-about">
   <h2><?php esc_html_e('About us', 'categories-all-in-one'); ?></h2>
-  <p><?php esc_html_e('Part of teastudio. We build WordPress and PrestaShop products backed by practical implementation experience.', 'categories-all-in-one'); ?></p>
-  <a class="button button-primary" href="<?php echo esc_url(Categories_All_In_One::HOME_URL); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Cool Cat Ideas', 'categories-all-in-one'); ?></a>
+  <div class="cci-categories-all-in-one-about-logos">
+    <img src="<?php echo esc_url(plugins_url('images/cool-cat-ideas-logo.svg', dirname(__DIR__) . '/categories-all-in-one.php')); ?>" width="160" height="50" alt="Cool Cat Ideas">
+    <img src="<?php echo esc_url(plugins_url('images/teastudio-logo.png', dirname(__DIR__) . '/categories-all-in-one.php')); ?>" width="80" height="50" alt="teastudio">
+  </div>
+  <p><?php esc_html_e('WordPress plugins and PrestaShop modules by Cool Cat Ideas, part of teastudio.', 'categories-all-in-one'); ?></p>
+  <a class="cci-categories-all-in-one-about-link" href="<?php echo esc_url(Categories_All_In_One::HOME_URL); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Visit Cool Cat Ideas', 'categories-all-in-one'); ?></a>
 </section>

@@ -10,6 +10,8 @@ if (! defined('ABSPATH')) {
 
 class Categories_All_In_One_Utils
 {
+  // Reuse term batches only while preparing one editor response.
+  private static $term_batches = null;
   public static function allowed_html()
   {
     return array(
@@ -121,9 +123,6 @@ class Categories_All_In_One_Utils
       // $lang = self::get_language($postId);
     }
 
-    if (!empty($atts['post']) && $postId) {
-      $atts['include'] = wp_get_post_categories($postId, array('fields' => 'ids'));
-    }
 
     $include = [];
     if (isset($atts['include'])) {
@@ -135,7 +134,7 @@ class Categories_All_In_One_Utils
     }
 
     $args = [
-      'lang'       => !empty($atts['lang']) ? sanitize_text_field($atts['lang']) : 'en',
+      'lang'       => !empty($atts['lang']) ? sanitize_text_field($atts['lang']) : '',
       'post'       => !empty($atts['post']) && $postId !== null ? $postId : '',
       'taxonomy'   => !empty($atts['taxonomy']) ? array_map('sanitize_key', (array) $atts['taxonomy']) : array('category'),
       'parent'     => !empty($atts['parent_category']) ? (int) $atts['parent_category'] : null,
@@ -178,46 +177,73 @@ class Categories_All_In_One_Utils
 
   private static function get_hierarchical_terms($atts, $parent = 0, $depth = 0)
   {
-    $result = array();
-    $atts['parent'] = $parent;
-
-    $terms = get_terms($atts);
-
-    if (is_wp_error($terms)) {
-      return $result;
-    }
-
     $maxDepth = isset($atts['max_depth']) ? (int) $atts['max_depth'] : 0;
-
     if ($maxDepth > 0 && $depth >= $maxDepth) {
-      return $result;
+      return array();
     }
-
+    $query = $atts;
+    unset($query['parent'], $query['parent_category'], $query['max_depth'], $query['exclude']);
+    foreach (array('layout', 'columns', 'list', 'separator', 'post', 'post_id', 'show_count', 'count', 'show_image', 'show_description', 'description_length', 'description_link', 'counter_brackets', 'custom_class', 'block_custom_class', 'sortable') as $key) {
+      unset($query[$key]);
+    }
+    $query['include'] = $query['include'] ?? array();
+    $query['fields'] = 'all';
+    $query['number'] = 0;
+    ksort($query);
+    $key = wp_json_encode($query);
+    $terms = self::$term_batches !== null && isset(self::$term_batches[$key])
+      ? self::$term_batches[$key]
+      : get_terms($query);
+    if (is_wp_error($terms)) {
+      return array();
+    }
+    if (self::$term_batches !== null) {
+      self::$term_batches[$key] = $terms;
+    }
+    $children = array();
     foreach ($terms as $term) {
-      if (array_key_exists('exclude', $atts)) {
-        $exclude = is_array($atts['exclude']) ? $atts['exclude'] : array_map('intval', explode(',', $atts['exclude']));
-        if (count($exclude) > 0 && in_array($term->term_id, $exclude, true)) {
-          continue;
-        }
+      if ($term instanceof WP_Term) {
+        $children[(int) $term->parent][] = $term;
       }
-      $child_atts = array_merge($atts, ['parent' => $term->term_id]);
-      $children = self::get_hierarchical_terms($child_atts, $term->term_id, $depth + 1);
-
-      if (! empty($children)) {
-        $term->children = $children;
-      }
-
-      $result[] = $term;
     }
+    return self::build_term_tree($children, (int) $parent, $depth, $maxDepth, self::sanitize_ids($atts['exclude'] ?? array()));
+  }
 
+  private static function build_term_tree($children, $parent, $depth, $maxDepth, $exclude, $ancestors = array())
+  {
+    if (($maxDepth > 0 && $depth >= $maxDepth) || isset($ancestors[$parent])) {
+      return array();
+    }
+    $ancestors[$parent] = true;
+    $result = array();
+    foreach ($children[$parent] ?? array() as $term) {
+      if (in_array((int) $term->term_id, $exclude, true)) {
+        continue;
+      }
+      // Never attach layout-specific children to WordPress's cached term objects.
+      $node = clone $term;
+      $node->children = self::build_term_tree($children, (int) $term->term_id, $depth + 1, $maxDepth, $exclude, $ancestors);
+      $result[] = $node;
+    }
     return $result;
   }
 
   public static function get_categories($atts)
   {
+    $previous_batches = self::$term_batches;
+    self::$term_batches = array();
+    try {
+      return self::prepare_categories($atts);
+    } finally {
+      self::$term_batches = $previous_batches;
+    }
+  }
+
+  private static function prepare_categories($atts)
+  {
     $firstElement = array(array('value' => '', 'label' => ''));
 
-    $atts = wp_parse_args($atts, Categories_All_In_One_Generator::get_defaults());
+    $atts = Categories_All_In_One_Generator::sanitize_attributes($atts);
     $args = self::prepare_args($atts);
     $tmp_args = $args;
 
