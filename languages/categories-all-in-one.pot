@@ -1,0 +1,617 @@
+# Copyright (C) 2026 Cool Cat Ideas
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Categories All In One 1.2.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/categories-all-in-one\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-06T19:47:15+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: categories-all-in-one\n"
+
+#. Plugin Name of the plugin
+#: categories-all-in-one.php
+#: categories-all-in-one.php:388
+#: categories-all-in-one.php:389
+#: categories-all-in-one.php:426
+#: categories-all-in-one.php:427
+msgid "Categories All In One"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: categories-all-in-one.php
+msgid "https://coolcatideas.com/en/products/categories-all-in-one/"
+msgstr ""
+
+#. Description of the plugin
+#: categories-all-in-one.php
+msgid "Build responsive category lists, columns and cards from WordPress taxonomies."
+msgstr ""
+
+#. Author of the plugin
+#: categories-all-in-one.php
+msgid "Cool Cat Ideas"
+msgstr ""
+
+#. Author URI of the plugin
+#: categories-all-in-one.php
+msgid "https://coolcatideas.com"
+msgstr ""
+
+#: categories-all-in-one.php:134
+#: categories-all-in-one.php:136
+msgid "You are not allowed to create category shortcodes."
+msgstr ""
+
+#: categories-all-in-one.php:135
+#: categories-all-in-one.php:137
+msgid "Access denied"
+msgstr ""
+
+#: categories-all-in-one.php:326
+#: categories-widget.class.php:195
+#: categories-widget.class.php:210
+#: shortcode-generator.php:155
+#: shortcode-generator.php:168
+#: categories-all-in-one.php:322
+#: categories-all-in-one.php:352
+msgid "No categories"
+msgstr ""
+
+#: categories-all-in-one.php:327
+#: categories-all-in-one.php:353
+msgid "More tools for your WordPress site"
+msgstr ""
+
+#: categories-all-in-one.php:328
+msgid "Cool Cat Ideas is part of teastudio. We build and maintain online stores, WordPress websites, web applications and integrations for growing businesses."
+msgstr ""
+
+#: categories-all-in-one.php:329
+#: includes/plugin-info.php:20
+#: categories-all-in-one.php:355
+msgid "See what we build"
+msgstr ""
+
+#: categories-all-in-one.php:429
+msgid "Settings"
+msgstr ""
+
+#: categories-all-in-one.php:434
+#: categories-all-in-one.php:468
+msgid "Build clear category navigation from the taxonomies you already manage in WordPress."
+msgstr ""
+
+#: categories-all-in-one.php:439
+#: includes/admin-sidebar.php:33
+#: includes/plugin-info.php:25
+#: categories-all-in-one.php:501
+msgid "Documentation"
+msgstr ""
+
+#: categories-all-in-one.php:445
+msgid "Plugin summary"
+msgstr ""
+
+#: categories-all-in-one.php:448
+msgid "Editor"
+msgstr ""
+
+#: categories-all-in-one.php:448
+msgid "Block"
+msgstr ""
+
+#: categories-all-in-one.php:452
+msgid "Reusable embeds"
+msgstr ""
+
+#: categories-all-in-one.php:452
+#: categories-all-in-one.php:350
+msgid "Shortcode"
+msgstr ""
+
+#: categories-all-in-one.php:456
+msgid "Legacy support"
+msgstr ""
+
+#: categories-all-in-one.php:456
+msgid "Widget"
+msgstr ""
+
+#: categories-all-in-one.php:462
+#: categories-all-in-one.php:477
+msgid "Quick feedback"
+msgstr ""
+
+#: categories-all-in-one.php:463
+#: categories-all-in-one.php:478
+msgid "How is Categories All In One working for you?"
+msgstr ""
+
+#: categories-all-in-one.php:464
+#: categories-all-in-one.php:479
+msgid "If this plugin helps your site, a short review helps us keep improving it."
+msgstr ""
+
+#: categories-all-in-one.php:469
+#: categories-all-in-one.php:484
+msgid "Rate on WordPress.org"
+msgstr ""
+
+#: categories-all-in-one.php:470
+msgid "Open GitHub"
+msgstr ""
+
+#: categories-all-in-one.php:478
+#: categories-all-in-one.php:492
+msgid "Start here"
+msgstr ""
+
+#: categories-all-in-one.php:479
+#: categories-all-in-one.php:493
+msgid "Add the block, choose its source and layout, then check the result at every breakpoint."
+msgstr ""
+
+#: categories-all-in-one.php:482
+#: categories-all-in-one.php:496
+msgid "Open a page or post and add the Categories All In One block."
+msgstr ""
+
+#: categories-all-in-one.php:483
+#: categories-all-in-one.php:497
+msgid "Choose a taxonomy, layout and the hierarchy depth you want to show."
+msgstr ""
+
+#: categories-all-in-one.php:484
+#: categories-all-in-one.php:498
+msgid "Publish the page and check the category links on desktop and mobile."
+msgstr ""
+
+#: categories-all-in-one.php:490
+#: categories-all-in-one.php:509
+msgid "Style loading"
+msgstr ""
+
+#: categories-all-in-one.php:491
+#: categories-all-in-one.php:510
+msgid "Choose whether this plugin supplies its complete frontend presentation."
+msgstr ""
+
+#: categories-all-in-one.php:499
+#: categories-all-in-one.php:518
+msgid "Load the plugin styles"
+msgstr ""
+
+#: categories-all-in-one.php:500
+#: categories-all-in-one.php:519
+msgid "Keep this enabled unless your theme supplies the complete category layout."
+msgstr ""
+
+#: categories-all-in-one.php:505
+#: categories-all-in-one.php:524
+msgid "Save changes"
+msgstr ""
+
+#: categories-generator.class.php:123
+#: categories-generator.class.php:138
+#, php-format
+msgid "Open %s category"
+msgstr ""
+
+#: categories-generator.class.php:149
+#: categories-generator.class.php:164
+#, php-format
+msgid "View posts in category %s"
+msgstr ""
+
+#: categories-widget.class.php:23
+msgid "Display customizable category list from selected taxonomies with various sorting and styling options"
+msgstr ""
+
+#: categories-widget.class.php:84
+msgid "Title"
+msgstr ""
+
+#: categories-widget.class.php:90
+#: shortcode-generator.php:45
+msgid "Language"
+msgstr ""
+
+#: categories-widget.class.php:103
+#: shortcode-generator.php:64
+msgid "Category source"
+msgstr ""
+
+#: categories-widget.class.php:131
+#: shortcode-generator.php:95
+msgid "Categories from parent"
+msgstr ""
+
+#: categories-widget.class.php:144
+#: shortcode-generator.php:109
+msgid "Order by"
+msgstr ""
+
+#: categories-widget.class.php:159
+#: shortcode-generator.php:123
+msgid "Order"
+msgstr ""
+
+#: categories-widget.class.php:174
+#: shortcode-generator.php:137
+msgid "Category hierarchy depth"
+msgstr ""
+
+#: categories-widget.class.php:177
+#: shortcode-generator.php:139
+msgid "0 means no depth limit."
+msgstr ""
+
+#: categories-widget.class.php:181
+#: shortcode-generator.php:144
+msgid "Hide empty"
+msgstr ""
+
+#: categories-widget.class.php:187
+#: shortcode-generator.php:148
+msgid "Exclude categories"
+msgstr ""
+
+#: categories-widget.class.php:202
+#: shortcode-generator.php:161
+msgid "Customize category order"
+msgstr ""
+
+#: categories-widget.class.php:217
+#: shortcode-generator.php:175
+msgid "Layout"
+msgstr ""
+
+#: categories-widget.class.php:227
+#: includes/utils.class.php:344
+#: shortcode-generator.php:184
+#: includes/utils.class.php:370
+msgid "Columns"
+msgstr ""
+
+#: categories-widget.class.php:237
+#: shortcode-generator.php:193
+msgid "List type"
+msgstr ""
+
+#: categories-widget.class.php:252
+#: shortcode-generator.php:208
+msgid "Show count"
+msgstr ""
+
+#: categories-widget.class.php:258
+#: shortcode-generator.php:213
+msgid "Show category image"
+msgstr ""
+
+#: categories-widget.class.php:264
+#: shortcode-generator.php:217
+msgid "Counter's brackets"
+msgstr ""
+
+#: categories-widget.class.php:279
+#: shortcode-generator.php:232
+msgid "Show description"
+msgstr ""
+
+#: categories-widget.class.php:285
+#: shortcode-generator.php:236
+msgid "Description length in chars"
+msgstr ""
+
+#: categories-widget.class.php:288
+#: shortcode-generator.php:238
+msgid "0 means no description limit."
+msgstr ""
+
+#: categories-widget.class.php:292
+#: shortcode-generator.php:243
+msgid "Description as link"
+msgstr ""
+
+#: categories-widget.class.php:298
+#: shortcode-generator.php:247
+msgid "Separator for each category"
+msgstr ""
+
+#: categories-widget.class.php:304
+#: shortcode-generator.php:252
+msgid "Custom CSS class(es) for each category"
+msgstr ""
+
+#: categories-widget.class.php:307
+#: categories-widget.class.php:314
+#: shortcode-generator.php:254
+#: shortcode-generator.php:260
+msgid "Separate multiple classes with spaces."
+msgstr ""
+
+#: categories-widget.class.php:311
+#: shortcode-generator.php:258
+msgid "Additional CSS class(es) for block"
+msgstr ""
+
+#: categories-widget.class.php:319
+msgid "Open the product page"
+msgstr ""
+
+#: includes/admin-sidebar.php:15
+msgid "Plugin status"
+msgstr ""
+
+#: includes/admin-sidebar.php:16
+msgid "Free"
+msgstr ""
+
+#: includes/admin-sidebar.php:20
+msgid "Installed version"
+msgstr ""
+
+#: includes/admin-sidebar.php:21
+msgid "Platform"
+msgstr ""
+
+#: includes/admin-sidebar.php:27
+msgid "Product resources"
+msgstr ""
+
+#: includes/admin-sidebar.php:28
+msgid "Open the official product, documentation and source pages."
+msgstr ""
+
+#: includes/admin-sidebar.php:30
+#: categories-all-in-one.php:500
+msgid "Categories All In One resources"
+msgstr ""
+
+#: includes/admin-sidebar.php:31
+msgid "Cool Cat Ideas home"
+msgstr ""
+
+#: includes/admin-sidebar.php:32
+#: includes/plugin-info.php:26
+msgid "Product page"
+msgstr ""
+
+#: includes/admin-sidebar.php:34
+msgid "GitHub repository"
+msgstr ""
+
+#: includes/admin-sidebar.php:35
+msgid "Review on WordPress.org"
+msgstr ""
+
+#: includes/admin-sidebar.php:41
+msgid "Built by Cool Cat Ideas"
+msgstr ""
+
+#: includes/admin-sidebar.php:42
+msgid "Part of teastudio. We build WordPress and PrestaShop products backed by practical implementation experience."
+msgstr ""
+
+#: includes/admin-sidebar.php:43
+msgid "Explore Cool Cat Ideas"
+msgstr ""
+
+#: includes/plugin-info.php:16
+msgid "Part of teastudio"
+msgstr ""
+
+#: includes/plugin-info.php:19
+msgid "This plugin is one small part of what we build. We create and maintain online stores, WordPress websites, web applications and API integrations."
+msgstr ""
+
+#: includes/plugin-info.php:24
+msgid "Help and links"
+msgstr ""
+
+#: includes/plugin-info.php:27
+msgid "Leave a review"
+msgstr ""
+
+#: includes/utils.class.php:334
+#: includes/utils.class.php:360
+msgid "Bullet list"
+msgstr ""
+
+#: includes/utils.class.php:335
+#: includes/utils.class.php:361
+msgid "Numbered list"
+msgstr ""
+
+#: includes/utils.class.php:336
+#: includes/utils.class.php:362
+msgid "Without list"
+msgstr ""
+
+#: includes/utils.class.php:343
+#: includes/utils.class.php:369
+msgid "List"
+msgstr ""
+
+#: includes/utils.class.php:345
+#: includes/utils.class.php:371
+msgid "Cards"
+msgstr ""
+
+#: includes/utils.class.php:352
+#: includes/utils.class.php:378
+msgid "One column"
+msgstr ""
+
+#: includes/utils.class.php:353
+#: includes/utils.class.php:379
+msgid "Two columns"
+msgstr ""
+
+#: includes/utils.class.php:354
+#: includes/utils.class.php:380
+msgid "Three columns"
+msgstr ""
+
+#: includes/utils.class.php:355
+#: includes/utils.class.php:381
+msgid "Four columns"
+msgstr ""
+
+#: includes/utils.class.php:362
+#: includes/utils.class.php:388
+msgid "Name"
+msgstr ""
+
+#: includes/utils.class.php:363
+#: includes/utils.class.php:389
+msgid "Count"
+msgstr ""
+
+#: includes/utils.class.php:370
+#: includes/utils.class.php:396
+msgid "Ascending"
+msgstr ""
+
+#: includes/utils.class.php:371
+#: includes/utils.class.php:397
+msgid "Descending"
+msgstr ""
+
+#: includes/utils.class.php:372
+#: includes/utils.class.php:398
+msgid "Random"
+msgstr ""
+
+#: includes/utils.class.php:379
+#: includes/utils.class.php:405
+msgid "Round ()"
+msgstr ""
+
+#: includes/utils.class.php:380
+#: includes/utils.class.php:406
+msgid "Curly {}"
+msgstr ""
+
+#: includes/utils.class.php:381
+#: includes/utils.class.php:407
+msgid "Square []"
+msgstr ""
+
+#: includes/utils.class.php:382
+#: includes/utils.class.php:408
+msgid "Angle <>"
+msgstr ""
+
+#: includes/utils.class.php:383
+#: includes/utils.class.php:409
+msgid "Without brackets"
+msgstr ""
+
+#: shortcode-generator.php:59
+msgid "Only categories from this content"
+msgstr ""
+
+#: shortcode-generator.php:264
+msgid "Insert Shortcode"
+msgstr ""
+
+#: includes/admin-sidebar.php:21
+msgid "Installed"
+msgstr ""
+
+#: includes/admin-sidebar.php:22
+msgid "Latest"
+msgstr ""
+
+#: includes/admin-sidebar.php:24
+msgid "Last check"
+msgstr ""
+
+msgid "Checking for updates..."
+msgstr ""
+
+#: includes/admin-sidebar.php:9
+msgid "New version available"
+msgstr ""
+
+#: includes/admin-sidebar.php:9
+msgid "You are up to date"
+msgstr ""
+
+#: includes/admin-sidebar.php:8
+msgid "Version feed is unavailable"
+msgstr ""
+
+#: includes/admin-sidebar.php:28
+msgid "View update"
+msgstr ""
+
+msgid "Try again"
+msgstr ""
+
+msgid "Help and resources"
+msgstr ""
+
+msgid "Read the documentation, ask the community or check release notes."
+msgstr ""
+
+#: categories-all-in-one.php:502
+msgid "Community support"
+msgstr ""
+
+#: categories-all-in-one.php:503
+msgid "Release notes"
+msgstr ""
+
+msgid "About us"
+msgstr ""
+
+msgid "You are not allowed to manage these settings."
+msgstr ""
+
+#: categories-all-in-one.php:351
+msgid "Copy this shortcode to reuse the current block settings elsewhere."
+msgstr ""
+
+#. Description of the plugin
+#: categories-all-in-one.php
+msgid "Help visitors browse posts and products with category lists, columns and cards."
+msgstr ""
+
+#: categories-all-in-one.php:354
+msgid "Explore WordPress plugins and PrestaShop modules from Cool Cat Ideas."
+msgstr ""
+
+#: categories-all-in-one.php:412
+#, php-format
+msgid "Invalid value for %s."
+msgstr ""
+
+#: includes/admin-sidebar.php:32
+msgid "Show what is inside each category"
+msgstr ""
+
+#: includes/admin-sidebar.php:33
+msgid "Help visitors discover posts from a chosen category with WP Posts Carousel All In One. Add a carousel below your category navigation or on a landing page."
+msgstr ""
+
+#: includes/admin-sidebar.php:34
+msgid "Explore WP Posts Carousel"
+msgstr ""
+
+#: includes/admin-sidebar.php:35
+msgid "More tools from Cool Cat Ideas"
+msgstr ""
+
+msgid "WordPress plugins and PrestaShop modules by Cool Cat Ideas, part of teastudio."
+msgstr ""
+
+msgid "Visit Cool Cat Ideas"
+msgstr ""
