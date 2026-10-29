@@ -2,7 +2,7 @@
 Contributors: coolcatideas, teastudio.pl
 Tags: categories, taxonomy, block, widget, shortcode
 Requires at least: 6.2
-Tested up to: 7.1.4
+Tested up to: 7.1
 Requires PHP: 7.4
 Stable tag: 1.2.2
 License: GPLv2 or later
