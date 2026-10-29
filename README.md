@@ -1,4 +1,4 @@
-<a href="https://coolcatideas.com/en/products/categories-all-in-one/">
+<a href="https://coolcatideas.com/products/categories-all-in-one/">
   <img src="images/cci-categories-all-in-one-icon.webp" alt="Categories All In One" width="96" height="96">
 </a>
 
