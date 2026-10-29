@@ -6,15 +6,13 @@
 
 Help visitors find posts and products with category lists, columns and cards. Use your existing WordPress categories, WooCommerce product categories or another public hierarchical taxonomy, and add the category section with a block, widget or shortcode.
 
-[Product page](https://coolcatideas.com/en/products/categories-all-in-one/) · [Documentation](https://coolcatideas.com/en/docs/categories-all-in-one/1.2.0/) · [Downloads](https://github.com/cool-cat-ideas/categories-all-in-one/releases) · [Community support](https://github.com/cool-cat-ideas/categories-all-in-one/discussions)
+[Product page](https://coolcatideas.com/products/categories-all-in-one/) · [Documentation](https://coolcatideas.com/docs/categories-all-in-one/) · [Downloads](https://github.com/cool-cat-ideas/categories-all-in-one/releases) · [Community support](https://github.com/cool-cat-ideas/categories-all-in-one/discussions)
 
 ## Get started
 
 Requires **WordPress 6.2 or later** and **PHP 7.4 or later**. WooCommerce is needed only for product categories.
 
-Current release: **1.2.2**. Declared compatibility with **WordPress 7.1.3**.
-
-This release fixes categories selected from the current post or product, editor previews on sites with plain permalinks, and validation of preview requests. Category trees now use a single term lookup instead of a lookup for every branch. The settings screen has fewer panels, with documentation and support beside the getting-started steps.
+Tested with **WordPress 7.1.4**. See the [release history](readme.txt#changelog) for changes between versions.
 
 1. Install the plugin ZIP through **Plugins → Add New Plugin → Upload Plugin** and activate it.
 2. Add the **Categories All In One** block to a page or widget area.

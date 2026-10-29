@@ -2,7 +2,7 @@
 Contributors: coolcatideas, teastudio.pl
 Tags: categories, taxonomy, block, widget, shortcode
 Requires at least: 6.2
-Tested up to: 7.1.3
+Tested up to: 7.1.4
 Requires PHP: 7.4
 Stable tag: 1.2.2
 License: GPLv2 or later
@@ -110,7 +110,7 @@ For a shortcode, use `post="true"`; add `post_id="123"` to select a specific pos
 * Load administration assets only on the plugin settings and relevant editor screens.
 * Fixed nested sorting markup, category-name escaping and independent widget controls.
 * Simplified settings: removed the three summary panels and placed documentation and support beside the starting steps.
-* Declared compatibility with WordPress 7.1.3.
+* Tested with WordPress 7.1.4.
 
 = 1.2.1 =
 
@@ -148,12 +148,4 @@ For a shortcode, use `post="true"`; add `post_id="123"` to select a specific pos
 
 = 1.2.2 =
 
-Fixes current-content category selection and editor previews, reduces term lookups and simplifies the settings screen. Declares compatibility with WordPress 7.1.3.
-
-= 1.2.1 =
-
-Improves category and settings styles, fixes the last version-check date format and supports WordPress 7.1.2.
-
-= 1.2.0 =
-
-Adds category columns, cards, images and broader taxonomy support. After updating, check category sections on desktop and mobile, especially if your theme customizes the plugin's output.
+Fixes current-content category selection and editor previews, reduces term lookups and simplifies the settings screen. Tested with WordPress 7.1.4.
